@@ -1,14 +1,11 @@
 package utils
 
 import (
-	"strings"
 	"testing"
 )
 
 func TestPart1(t *testing.T) {
-	var data []string = strings.Split(GetFileData("../test.txt"), "\n\n")
-
-	got := GetTotalCalories(data)
+	got := Part1("../test.txt")
 	want := 24000
 
 	if got != want {
@@ -17,9 +14,7 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	var data []string = strings.Split(GetFileData("../test.txt"), "\n\n")
-
-	got := GetTotalThreeMostCalories(data)
+	got := Part2("../test.txt")
 	want := 45000
 
 	if got != want {

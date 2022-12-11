@@ -7,6 +7,23 @@ import (
 	"strings"
 )
 
+func Part1(filename string) int {
+	var data []string = strings.Split(GetFileData(filename), "\n\n")
+
+	numberOfCalories := GetTotalCalories(data)
+
+	return numberOfCalories
+}
+
+func Part2(filename string) int {
+	var data []string = strings.Split(GetFileData(filename), "\n\n")
+
+	numberOfCalories := GetTotalThreeMostCalories(data)
+
+	return numberOfCalories
+
+}
+
 func GetFileData(filePath string) string {
 	data, _ := os.ReadFile(filePath)
 
