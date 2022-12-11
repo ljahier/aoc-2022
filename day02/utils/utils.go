@@ -88,30 +88,42 @@ func getRoundScoreCheat(rounds []string) []int {
 }
 
 func computeRoundScore(round string) int {
-	var result int = 0
-
-	switch strings.Join(strings.Split(round, " "), "") {
-	case "AX":
-		result = Draw + X
-	case "AY":
-		result = Win + Y
-	case "AZ":
-		result = Lost + Z
-	case "BX":
-		result = Lost + X
-	case "BY":
-		result = Draw + Y
-	case "BZ":
-		result = Win + Z
-	case "CX":
-		result = Win + X
-	case "CY":
-		result = Lost + Y
-	case "CZ":
-		result = Draw + Z
+	preCompute := map[string]int{
+		"AX": Draw + X,
+		"AY": Win + Y,
+		"AZ": Lost + Z,
+		"BX": Lost + X,
+		"BY": Draw + Y,
+		"BZ": Win + Z,
+		"CX": Win + X,
+		"CY": Lost + Y,
+		"CZ": Draw + Z,
 	}
+	// var result int = 0
 
-	return result
+	// switch {
+	// case "AX":
+	// 	result = Draw + X
+	// case "AY":
+	// 	result = Win + Y
+	// case "AZ":
+	// 	result = Lost + Z
+	// case "BX":
+	// 	result = Lost + X
+	// case "BY":
+	// 	result = Draw + Y
+	// case "BZ":
+	// 	result = Win + Z
+	// case "CX":
+	// 	result = Win + X
+	// case "CY":
+	// 	result = Lost + Y
+	// case "CZ":
+	// 	result = Draw + Z
+	// }
+
+	// return result
+	return preCompute[strings.Join(strings.Split(round, " "), "")]
 }
 
 func computeRoundScoreCheat(round string) int {
